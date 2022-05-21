@@ -1,0 +1,176 @@
+#about-section {
+
+    .wrapper {
+
+        padding: 0% 10%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 200px;
+
+        .about-texts {
+            display: flex;
+            flex-flow: column;
+            gap: 40px;
+
+            color: white;
+            font-size: 1.6rem;
+
+            .about-1 , .about-2 {
+                opacity: 0;
+                animation: hi-fade-in 1s 1s forwards;
+            }
+
+            .about-2 {
+                animation-delay: 1.5s;
+
+                .contact-button {
+                    display: inline-block;
+                    text-decoration: underline;
+
+                    cursor: pointer;
+
+                    transition: transform 0.5s;
+
+                    &:hover {
+                        transform: translateY(-10%);
+                    }
+                }
+            }
+        }
+
+        .skills {
+            position: relative;
+
+            transition: opacity 1s 1s;
+
+            .skills-text {
+                position: absolute;
+                left: calc(100% + 30px);
+                top: 50%;
+
+                color: white;
+                letter-spacing: 1rem;
+                text-transform: uppercase;
+                transform-origin: bottom left;
+                transform: rotate(90deg) translateX(-50%);
+
+                &::before, &::after {
+                    content: '';
+                    height: 1px;
+                    width: 60px;
+                    background-color: white;
+                    position: absolute;
+                    top: 50%;
+
+                    transition: width 1s 1s;
+                }
+
+                &::before {
+                    right: calc(100% + 12px);
+                }
+                
+                &::after {
+                    left: 100%;
+                }
+            }
+
+            .skills-wrapper {
+                margin-right: 20px;
+
+                display: flex;
+                flex-flow: column;
+                
+                .skill-image {
+                    padding: 10px 0px;
+
+                    transition: transform 1s 1s;
+                }
+
+                .skill-label {
+                    --skill-label-position: 10%;
+
+                    position: absolute;
+                    top: var(--skill-label-position);
+                    right: calc(100% + 60px);
+                    transform: translateY(-50%);
+                    
+                    padding: 5px 10px;
+                    // border-radius: calc(1rem + 10px);
+
+                    color: #383838;
+                    background-color: white;
+                    font-weight: bolder;
+                    opacity: 0;
+
+                    transition: top 0.5s,
+                                right   0.5s,
+                                opacity 0.5s;
+
+                    &::before {
+                         content: '';
+
+                         width: 15px;
+                         height: 1px;
+                         background-color: white;
+
+                         position: absolute;
+                         top: 50%;
+                         left: 100%;
+                         transform: translateY(-50%);
+                        }
+                        
+                        &.show {
+                        right: calc(100% + 30px);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    &.close {
+
+        .wrapper {
+
+            .about-texts {
+
+                .about-1, .about-2 {
+                    opacity: 0;
+                    animation: h1-fade-out 1s forwards;
+                }
+            }
+
+            .skills {
+                opacity: 0;
+
+                transition-delay: 0s;
+
+                .skills-text {
+                    &::before, &::after {
+                        width: 0px;
+                    }
+                }
+
+                .skill-image {
+                    transform: translateX(-100%);
+                    transition-delay: 0ms;
+                }
+            }
+
+            &.init {
+                
+                .about-texts {
+                    .about-1, .about-2 {
+                        animation: none;
+                    }
+                }
+
+                .skills {
+                    transition: none;
+                }
+            }
+        }
+    }
+}

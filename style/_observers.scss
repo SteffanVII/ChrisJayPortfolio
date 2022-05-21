@@ -1,0 +1,21 @@
+.observers {
+    --position : 0px;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0; 
+    left: 0;
+
+    transform: translateY(var(--position));
+
+    div {
+        width: 100%;
+        height: 100%;
+
+        &.about-observer {
+            // background-color: gray;
+        }
+    }
+}

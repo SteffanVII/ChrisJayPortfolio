@@ -1,0 +1,88 @@
+@import './animations';
+
+section {
+    width: 100%;
+    height: 100%;
+
+    .wrapper {
+        width: 100%;
+        height: 100%;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        .background-text {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-42%);
+
+            opacity: 0;
+            animation: bg-text-fade-in 1s 1.2s forwards;
+        }
+
+        .background-graphics {
+            height: 70%;
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-45%);
+        }
+
+        #greetings-graphics {
+            .code-line, .wireframe, .main {
+                --totalLength: 0px;
+
+                stroke-dasharray: var(--totalLength);
+                stroke-dashoffset: var(--totalLength);
+
+                animation: stroke-transition 2s 1.2s forwards;
+            }
+
+            .wireframe {
+                animation-delay: 1.4s;
+            }
+
+            .main {
+                animation-delay: 1.6s;
+            }
+
+            .number {
+                opacity: 0;
+                animation: number-fade-in 0.1s forwards;
+            }
+        }
+    }
+
+    &.close {
+
+        pointer-events: none;
+
+        .wrapper {
+            
+            .background-text {
+                opacity: 0;
+                animation: bg-text-fade-out 1s forwards;
+            }
+
+            .background-graphics {
+                &#greetings-graphics {
+                    .code-line, .wireframe, .main, .number {
+                        opacity: 1;
+
+                        stroke-dasharray: none;
+
+                        animation: bg-graphics-fade-out 1s forwards;
+                    }
+                }
+            }
+
+            &.init {
+                .background-text {
+                    animation: none;
+                }
+            }
+        }
+    }
+}

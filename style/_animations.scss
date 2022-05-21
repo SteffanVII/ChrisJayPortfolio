@@ -1,0 +1,87 @@
+@keyframes bg-text-fade-in {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes bg-text-fade-out {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+    }
+}
+
+@keyframes number-fade-in {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes stroke-transition {
+    from {
+        stroke-dasharray: var(--totalLength);
+    } to {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes bg-graphics-fade-out {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+    }
+}
+
+@keyframes bounce-wave {
+    0% {
+        transform: translateY(0%);
+    } 60% {
+        transform: translateY(-50%);
+    } 90% {
+        transform: translateY(10%);
+    } 100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes hi-fade-in {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    } to {
+        transform: translateY(00%);
+        opacity: 1;
+    }
+}
+
+@keyframes h1-fade-out {
+    from {
+        transform: translateY(0%);
+        opacity: 1;
+    } to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes name-fade-in {
+    0% {
+        max-width: 0px;
+        transform: translateY(100%);
+        opacity: 0;
+    } 50% {
+        max-width: 610px;
+        transform: translateY(100%);
+        opacity: 0;
+    } 100% {
+        max-width: 610px;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}

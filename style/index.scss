@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;0,6..96,900;1,6..96,400;1,6..96,500;1,6..96,600;1,6..96,700;1,6..96,800;1,6..96,900&display=swap');
+
+$bodoni-moda: 'Bodoni Moda', serif;
+
+:root {
+    font-size: 14px;
+    font-family: 'Bodoni Moda', serif;
+    // font-family: monospace;
+    font-weight: 500;
+
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    background-color: #383838;
+
+    overflow: hidden;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+
+        .currentScroll {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+
+            color: white;
+        }
+
+        @import './observers';
+        @import './page-indicator';
+        @import './sections';
+        @import './greeting-section';
+        @import './about-section';
+        @import './contact';
+    }
+}
