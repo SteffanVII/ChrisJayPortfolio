@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style/index.css">
-    <script src="scripts/index.js" async></script>
+    <script src="scripts/index.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('sNT5scvfLYpyvgQW8');
+        })();
+    </script>
 </head>
-<body>
-    <main>
-        <div class="observers">
+<body style="background-color: #383838;" >
+    <main style="visibility: hidden;" >
+        <div class="observers"> 
             <div class="greeting-observer"></div>
             <div class="about-observer"></div>
             <div class="projects-observer"></div>
@@ -56,7 +62,7 @@
                     </g>
                 </svg>
                 <div class="greeting-text">
-                    <h1>"Hi!<span class="wave">👋</span></h1><h1>My name is Chris Jay a aspiring front end developer"</h1>
+                    <h1>Hi!<span class="wave">👋</span></h1><h1>I'm Chris Jay a aspiring front end developer</h1>
                 </div>
             </div>
         </section>
@@ -83,20 +89,78 @@
         <section id="projects-section" class="close">
             <div class="wrapper init">
                 <img class="background-text" src="assets/Projects.svg">
+                <div class="projects-container">
+                    <div class="project getflix">
+                        <div class="project-ss">
+                            <img src="assets/GETFLIX-ss.png" alt="Getflix screenshot">
+                            <div class="languages">
+                                <div class="lang lang-html">
+                                    <div class="logo"></div>
+                                </div>
+                                <div class="lang lang-css">
+                                    <div class="logo"></div>
+                                </div>
+                                <div class="lang lang-js">
+                                    <div class="logo"></div>
+                                </div>
+                                <div class="lang lang-sass">
+                                    <div class="logo"></div>
+                                </div>
+                                <div class="lang lang-reactjs">
+                                    <div class="logo"></div>
+                                </div>
+                            </div>
+                            <span class="project-name">Getflix</span>
+                            <a target="_blank" href="https://steffanvii.github.io/Getflix-personal/">Live</a>
+                        </div>
+                    </div>
+                    <div class="project downton-abbey">
+                        <div class="project-ss">
+                            <img src="assets/Downton-Abbey-ss.png" alt="Downton abbey screenshot">
+                            <div class="languages">
+                                <div class="lang lang-html">
+                                    <div class="logo"></div>
+                                </div>
+                                <div class="lang lang-css">
+                                    <div class="logo"></div>
+                                </div>
+                                <div class="lang lang-js">
+                                    <div class="logo"></div>
+                                </div>
+                                <div class="lang lang-sass">
+                                    <div class="logo"></div>
+                                </div>
+                            </div>
+                            <span class="project-name">Downtown Abbey</span>
+                            <a target="_blank" href="https://steffanvii.github.io/Downton-Abbey/#movies">Live</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <div class="page-indicator">
             <div class="line"><span class="section-number">/001</span><span class="section-name">greetings</span></div>
         </div>
         <p class="currentScroll"></p>
+        <div class="socials-container">
+            <a target="_blank" href="https://github.com/SteffanVII">
+                <img src="./assets/github-logo.svg" alt="github logo">
+            </a>
+            <a target="_blank" href="https://www.instagram.com/jay.aoba/">
+                <img src="./assets/ig-logo.svg" alt="instagram logo">
+            </a>
+            <a target="_blank" href="http://www.linkedin.com/in/chris-jay-abao-232485225">
+                <img src="./assets/linkedin-logo.svg" alt="linkedin logo">
+            </a>
+        </div>
         <div class="contact-container init">
             <form>
                 <span class="contact-header">Reach out 👋</span>
                 <input type="text" name="name" placeholder="Name">
-                <input type="email" name="email" placeholder="Email">
+                <input type="email" name="email" placeholder="Email" required>
                 <input type="text" name="subject" placeholder="Subject">
                 <textarea name="message" placeholder="Your Message"></textarea>
-                <button type="submit">Submit</button>
+                <button type="submit">Send</button>
                 <button type="button" class="contact-close">Close</button>
             </form>
         </div>

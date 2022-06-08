@@ -1,0 +1,16 @@
+.socials-container {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+
+    display: flex;
+    gap: 10px;
+
+    a {
+
+        img {
+            height: 32px;
+        }
+
+    }
+}

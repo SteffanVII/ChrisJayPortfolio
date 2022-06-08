@@ -12,14 +12,13 @@ let fps = 60,
 
 let scrollHeight = document.documentElement.scrollHeight - window.innerHeight,
     currentScroll = 0,
-    targetScroll = 0;
+    targetScroll = 0,
+    lastDrag = 0;
 
 let randomLetterInterval,
     sectionName = 'Hi';
     cycles = 0,
     textPosition = -1;
-
-// Calls -----------------------
 
 window.requestAnimationFrame(Loop);
 
@@ -32,7 +31,26 @@ Array.from(document.querySelectorAll('.observers div')).forEach( observer => {
 // Event listeners -------------
 
 document.body.addEventListener('wheel', (event) => {
-    targetScroll += event.deltaY;
+    if ( !document.querySelector('.contact-container').classList.contains('show') ) {
+        targetScroll += event.deltaY * 0.5;
+    }
+    if ( targetScroll > getScrollHeihgt() ) targetScroll = getScrollHeihgt();
+    if ( targetScroll < 0 ) targetScroll = 0;
+});
+
+document.body.addEventListener('touchstart', event => {
+    lastDrag = event.touches[0].screenY;
+});
+
+document.body.addEventListener('touchmove', event => {
+    if ( !document.querySelector('.contact-container').classList.contains('show') ) {
+        if ( lastDrag - event.touches[0].screenY < 0 ) {
+            targetScroll -= 20;
+        } else {
+            targetScroll += 20
+        }
+    }
+    lastDrag = event.touches[0].screenY;
     if ( targetScroll > getScrollHeihgt() ) targetScroll = getScrollHeihgt();
     if ( targetScroll < 0 ) targetScroll = 0;
 });
@@ -87,20 +105,15 @@ document.querySelector('form').addEventListener('submit', event => {
     let subject = form.subject.value;
     let message = form.message.value;
 
-    let xml = new XMLHttpRequest();
-
-    xml.open( 'POST', 'scripts/backend/contact.php' );
-    xml.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xml.onreadystatechange = event => {
-        if ( xml.status == 200 && xml.readyState == 4 ) {
-            let response = xml.response;
-            console.log(response);
-        }
+    var params = {
+        from_name : name,
+        email_id : email,
+        subject : subject,
+        message : message
     }
 
-    let params = 'name=' + name + '&email=' + email + '&subject=' + subject + '&message=' + message;
+    emailjs.send("service_0hvqqjj","template_y1nbmgq", params);
 
-    xml.send(params);
     return false;
 });
 

@@ -1,3 +1,5 @@
+@import './media-queries';
+
 #about-section {
 
     .wrapper {
@@ -38,6 +40,14 @@
                     }
                 }
             }
+
+            @include w860 {
+                font-size: 1.2rem;
+            }
+
+            @include w760 {
+                font-size: 0.9rem;
+            }
         }
 
         .skills {
@@ -72,6 +82,15 @@
                 }
                 
                 &::after {
+                    left: 100%;
+                }
+
+                @include w760 {
+                    left: calc(100% + 10px);
+                    font-size: 0.7rem;
+                }
+                
+                @include w660 {
                     left: 100%;
                 }
             }
@@ -127,6 +146,14 @@
                     }
                 }
             }
+        }
+
+        @include w660 {
+            gap: 100px;
+        }
+
+        @include w560 {
+            gap: 30px;
         }
     }
 

@@ -32,6 +32,7 @@ body::-webkit-scrollbar {
 body main {
   width: 100%;
   height: 100%;
+  visibility: visible !important;
 }
 
 body main .currentScroll {
@@ -39,6 +40,14 @@ body main .currentScroll {
   top: 40px;
   right: 40px;
   color: white;
+}
+
+@media screen and (max-width: 560px) {
+  body main .currentScroll {
+    top: 10px;
+    right: 10px;
+    font-size: 0.7rem;
+  }
 }
 
 body main .observers {
@@ -53,8 +62,8 @@ body main .observers {
 }
 
 body main .observers div {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 body main .page-indicator {
@@ -113,6 +122,12 @@ body main .page-indicator .line .section-number {
   font-weight: bold;
 }
 
+@media screen and (max-width: 560px) {
+  body main .page-indicator .line .section-number {
+    margin-left: 10px;
+  }
+}
+
 body main .page-indicator .line .section-name {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -121,6 +136,56 @@ body main .page-indicator .line .section-name {
   font-size: 2.4rem;
   font-weight: bold;
   font-style: italic;
+}
+
+@media screen and (max-width: 860px) {
+  body main .page-indicator .line {
+    border-width: 1px;
+    width: calc(100% + 50px);
+  }
+  body main .page-indicator .line .section-number, body main .page-indicator .line .section-name {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  body main .page-indicator .line {
+    width: calc( 100% + 20px);
+    gap: 5px;
+  }
+  body main .page-indicator .line .section-number, body main .page-indicator .line .section-name {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  body main .page-indicator {
+    width: 60%;
+    height: 5px;
+    left: 50px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  body main .page-indicator {
+    width: 50%;
+    left: 20px;
+    top: 30px;
+  }
+}
+
+body main .socials-container {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+body main .socials-container a img {
+  height: 32px;
 }
 
 @-webkit-keyframes bg-text-fade-in {
@@ -364,6 +429,7 @@ body main section .wrapper .background-text {
   left: 0;
   -webkit-transform: translateY(-42%);
           transform: translateY(-42%);
+  z-index: -1;
   opacity: 0;
   -webkit-animation: bg-text-fade-in 1s 1.2s forwards;
           animation: bg-text-fade-in 1s 1.2s forwards;
@@ -545,11 +611,14 @@ body main #greeting-section .wrapper {
 }
 
 body main #greeting-section .wrapper .greeting-text {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   position: absolute;
   top: 50%;
   left: 10%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -578,9 +647,70 @@ body main #greeting-section .wrapper .greeting-text h1:nth-child(1) .wave {
 }
 
 body main #greeting-section .wrapper .greeting-text h1:nth-child(2) {
-  max-width: 0px;
+  width: 100%;
   -webkit-animation: hi-fade-in 1s 1.3s forwards;
           animation: hi-fade-in 1s 1.3s forwards;
+}
+
+@media screen and (max-width: 1480px) {
+  body main #greeting-section .wrapper .greeting-text h1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  body main #greeting-section .wrapper .greeting-text h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  body main #greeting-section .wrapper .greeting-text h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  body main #greeting-section .wrapper .greeting-text h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  body main #greeting-section .wrapper .greeting-text h1 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1480px) {
+  body main #greeting-section .wrapper .greeting-text {
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-width: 860px) {
+  body main #greeting-section .wrapper .greeting-text {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media screen and (max-width: 1480px) {
+  body main #greeting-section .wrapper .background-text {
+    width: 50%;
+    aspect-ratio: 733 / 461;
+  }
+  body main #greeting-section .wrapper .background-graphics {
+    width: 40%;
+    aspect-ratio: 557 / 568;
+  }
 }
 
 body main #greeting-section.close .greeting-text h1:nth-child(1) {
@@ -653,6 +783,18 @@ body main #about-section .wrapper .about-texts .about-2 .contact-button:hover {
           transform: translateY(-10%);
 }
 
+@media screen and (max-width: 860px) {
+  body main #about-section .wrapper .about-texts {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  body main #about-section .wrapper .about-texts {
+    font-size: 0.9rem;
+  }
+}
+
 body main #about-section .wrapper .skills {
   position: relative;
   -webkit-transition: opacity 1s 1s;
@@ -689,6 +831,19 @@ body main #about-section .wrapper .skills .skills-text::before {
 
 body main #about-section .wrapper .skills .skills-text::after {
   left: 100%;
+}
+
+@media screen and (max-width: 760px) {
+  body main #about-section .wrapper .skills .skills-text {
+    left: calc(100% + 10px);
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  body main #about-section .wrapper .skills .skills-text {
+    left: 100%;
+  }
 }
 
 body main #about-section .wrapper .skills .skills-wrapper {
@@ -743,6 +898,18 @@ body main #about-section .wrapper .skills .skills-wrapper .skill-label.show {
   opacity: 1;
 }
 
+@media screen and (max-width: 660px) {
+  body main #about-section .wrapper {
+    gap: 100px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  body main #about-section .wrapper {
+    gap: 30px;
+  }
+}
+
 body main #about-section.close .wrapper .about-texts .about-1, body main #about-section.close .wrapper .about-texts .about-2 {
   opacity: 0;
   -webkit-animation: h1-fade-out 1s forwards;
@@ -776,6 +943,288 @@ body main #about-section.close .wrapper.init .skills {
   transition: none;
 }
 
+body main #projects-section .wrapper .projects-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 40px;
+}
+
+@media screen and (max-width: 1280px) {
+  body main #projects-section .wrapper .projects-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+}
+
+body main #projects-section .wrapper .projects-container .project {
+  width: 475px;
+  height: 273px;
+  position: relative;
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, transform 1s;
+  transition: opacity 1s, transform 1s, -webkit-transform 1s;
+}
+
+@media screen and (max-width: 760px) {
+  body main #projects-section .wrapper .projects-container .project {
+    width: 60%;
+    height: initial;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  body main #projects-section .wrapper .projects-container .project {
+    width: 80%;
+  }
+}
+
+body main #projects-section .wrapper .projects-container .project:nth-child(1) {
+  -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 1), -webkit-transform 0.7s calc( 1s + 0.15s * 1);
+  transition: opacity 0.7s calc( 1s + 0.15s * 1), -webkit-transform 0.7s calc( 1s + 0.15s * 1);
+  transition: opacity 0.7s calc( 1s + 0.15s * 1), transform 0.7s calc( 1s + 0.15s * 1);
+  transition: opacity 0.7s calc( 1s + 0.15s * 1), transform 0.7s calc( 1s + 0.15s * 1), -webkit-transform 0.7s calc( 1s + 0.15s * 1);
+}
+
+body main #projects-section .wrapper .projects-container .project:nth-child(2) {
+  -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 2), -webkit-transform 0.7s calc( 1s + 0.15s * 2);
+  transition: opacity 0.7s calc( 1s + 0.15s * 2), -webkit-transform 0.7s calc( 1s + 0.15s * 2);
+  transition: opacity 0.7s calc( 1s + 0.15s * 2), transform 0.7s calc( 1s + 0.15s * 2);
+  transition: opacity 0.7s calc( 1s + 0.15s * 2), transform 0.7s calc( 1s + 0.15s * 2), -webkit-transform 0.7s calc( 1s + 0.15s * 2);
+}
+
+body main #projects-section .wrapper .projects-container .project:nth-child(3) {
+  -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 3), -webkit-transform 0.7s calc( 1s + 0.15s * 3);
+  transition: opacity 0.7s calc( 1s + 0.15s * 3), -webkit-transform 0.7s calc( 1s + 0.15s * 3);
+  transition: opacity 0.7s calc( 1s + 0.15s * 3), transform 0.7s calc( 1s + 0.15s * 3);
+  transition: opacity 0.7s calc( 1s + 0.15s * 3), transform 0.7s calc( 1s + 0.15s * 3), -webkit-transform 0.7s calc( 1s + 0.15s * 3);
+}
+
+body main #projects-section .wrapper .projects-container .project:nth-child(4) {
+  -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 4), -webkit-transform 0.7s calc( 1s + 0.15s * 4);
+  transition: opacity 0.7s calc( 1s + 0.15s * 4), -webkit-transform 0.7s calc( 1s + 0.15s * 4);
+  transition: opacity 0.7s calc( 1s + 0.15s * 4), transform 0.7s calc( 1s + 0.15s * 4);
+  transition: opacity 0.7s calc( 1s + 0.15s * 4), transform 0.7s calc( 1s + 0.15s * 4), -webkit-transform 0.7s calc( 1s + 0.15s * 4);
+}
+
+body main #projects-section .wrapper .projects-container .project:nth-child(5) {
+  -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 5), -webkit-transform 0.7s calc( 1s + 0.15s * 5);
+  transition: opacity 0.7s calc( 1s + 0.15s * 5), -webkit-transform 0.7s calc( 1s + 0.15s * 5);
+  transition: opacity 0.7s calc( 1s + 0.15s * 5), transform 0.7s calc( 1s + 0.15s * 5);
+  transition: opacity 0.7s calc( 1s + 0.15s * 5), transform 0.7s calc( 1s + 0.15s * 5), -webkit-transform 0.7s calc( 1s + 0.15s * 5);
+}
+
+body main #projects-section .wrapper .projects-container .project::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #414141;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #414141;
+  background-color: white;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  opacity: 0;
+  visibility: hidden;
+  background-color: white;
+  -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+  transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang .logo {
+  width: 100%;
+  height: 100%;
+  background-color: #414141;
+  -webkit-mask-size: 100%;
+          mask-size: 100%;
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang::before {
+  padding: 5px 10px;
+  position: absolute;
+  bottom: calc(100% + 20px);
+  opacity: 0;
+  background-color: white;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-html .logo {
+  -webkit-mask-image: url("../assets/html.svg");
+          mask-image: url("../assets/html.svg");
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-html::before {
+  content: 'Html';
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-css .logo {
+  -webkit-mask-image: url("../assets/css.svg");
+          mask-image: url("../assets/css.svg");
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-css::before {
+  content: 'Css';
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-js .logo {
+  -webkit-mask-image: url("../assets/js.svg");
+          mask-image: url("../assets/js.svg");
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-js::before {
+  content: 'Javascript';
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-reactjs .logo {
+  -webkit-mask-image: url("../assets/reactjs.svg");
+          mask-image: url("../assets/reactjs.svg");
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-reactjs::before {
+  content: 'ReactJs';
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-sass .logo {
+  -webkit-mask-image: url("../assets/sass.svg");
+          mask-image: url("../assets/sass.svg");
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-sass::before {
+  content: 'Sass';
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang:hover::before {
+  opacity: 1;
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss .project-name {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 10px;
+  padding: 5px 10px;
+  color: #414141;
+  font-size: 1.3rem;
+  background-color: white;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+body main #projects-section .wrapper .projects-container .project .project-ss a {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  color: #414141;
+  text-decoration: none;
+  background-color: white;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 1.4rem;
+  -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+  transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+body main #projects-section .wrapper .projects-container .project:hover {
+  z-index: 1;
+}
+
+body main #projects-section .wrapper .projects-container .project:hover::before {
+  -webkit-transform: translate(5px, 5px);
+          transform: translate(5px, 5px);
+}
+
+body main #projects-section .wrapper .projects-container .project:hover .project-ss {
+  -webkit-transform: translate(-5px, -5px);
+          transform: translate(-5px, -5px);
+}
+
+body main #projects-section .wrapper .projects-container .project:hover .project-ss .languages {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+body main #projects-section .wrapper .projects-container .project:hover .project-ss .project-name {
+  opacity: 1;
+}
+
+body main #projects-section .wrapper .projects-container .project:hover .project-ss a {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+body main #projects-section.close .wrapper .projects-container .project {
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, transform 1s;
+  transition: opacity 1s, transform 1s, -webkit-transform 1s;
+}
+
+body main #projects-section.close .wrapper.init .projects-container .project {
+  -webkit-transition: none;
+  transition: none;
+}
+
 body main .contact-container {
   width: 100vw;
   height: 100vh;
@@ -805,6 +1254,7 @@ body main .contact-container form {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  height: 100%;
   padding: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -813,10 +1263,13 @@ body main .contact-container form {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 15px;
+  gap: 20px;
   -webkit-transform: translateX(-20%);
           transform: translateX(-20%);
   border: 1px solid #414141;

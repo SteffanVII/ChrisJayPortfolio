@@ -18,6 +18,8 @@ section {
             left: 0;
             transform: translateY(-42%);
 
+            z-index: -1;
+
             opacity: 0;
             animation: bg-text-fade-in 1s 1.2s forwards;
         }

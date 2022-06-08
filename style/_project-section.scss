@@ -1,0 +1,275 @@
+#projects-section {
+
+    .wrapper {
+
+        .projects-container {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+
+            @include w1280 {
+                flex-flow: column;
+            }
+
+            .project {
+                width: 475px;
+                height: 273px;
+
+                position: relative;
+
+                transition: opacity 1s,
+                            transform 1s;
+
+                @include w760 {
+                    width: 60%;
+                    height: initial;
+                    aspect-ratio: 16 / 9;
+                }
+
+                @include w560 {
+                    width: 80%;
+                }
+
+                @for $i from 1 through 5 {
+                    &:nth-child(#{$i}) {
+                        transition: opacity 0.7s calc( 1s + 0.15s * #{$i} ),
+                                    transform 0.7s calc( 1s + 0.15s * #{$i} );
+                    }
+                }
+
+                &::before {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    z-index: -1;
+
+                    background-color: #414141;
+
+                    transition: transform 0.5s;
+                }
+
+                .project-ss {
+                    width: 100%;
+                    height: 100%;
+
+                    position: relative;
+
+                    background-color: #414141;
+                    background-color: white;
+
+                    transition: transform 0.5s;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+
+                        object-fit: fill;
+                    }
+
+                    .languages {
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        padding: 10px;
+
+                        display: flex;
+                        gap: 5px;
+
+                        opacity: 0;
+                        visibility: hidden;
+                        background-color: white;
+
+                        transition: opacity 0.5s,
+                                    visibility 0s 0.5s;
+
+                        .lang {
+                            width: 30px;    
+                            height: 30px;
+
+                            position: relative;
+                            
+                            
+                            .logo {
+                                width: 100%;
+                                height: 100%;
+                                
+                                background-color: #414141;
+                                mask-size: 100%;
+                            }
+
+                            &::before {
+                                padding: 5px 10px;
+                                position: absolute;
+                                bottom: calc(100% + 20px);
+                                opacity: 0;
+
+                                background-color: white;
+
+                                transition: opacity 0.5s;
+                            }
+
+                            &.lang-html {
+                                .logo {
+                                    mask-image: url('../assets/html.svg');
+                                }
+                                
+                                &::before {
+                                    content: 'Html';
+                                }    
+                            }
+                            
+                            &.lang-css {
+                                .logo {
+                                    mask-image: url('../assets/css.svg');
+                                }
+                                
+                                &::before {
+                                    content: 'Css';
+                                }    
+                            }
+                            
+                            &.lang-js {
+                                .logo {
+                                    mask-image: url('../assets/js.svg');
+                                }
+                                
+                                &::before {
+                                    content: 'Javascript';
+                                }    
+                            }
+                            
+                            &.lang-reactjs {
+                                .logo {
+                                    mask-image: url('../assets/reactjs.svg');
+                                }
+                                
+                                &::before {
+                                    content: 'ReactJs';
+                                }    
+                            }
+
+                            &.lang-sass {
+                                .logo {
+                                    mask-image: url('../assets/sass.svg');
+                                }
+
+                                &::before {
+                                    content: 'Sass';
+                                }    
+                            }
+
+                            &:hover {
+                                &::before {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+
+                    .project-name {
+                        position: absolute;
+                        top: calc(100% + 20px);
+                        left: 10px;
+                        padding: 5px 10px;
+
+                        color: #414141;
+                        font-size: 1.3rem;
+                        background-color: white;
+                        
+                        opacity: 0;
+                        transition: opacity 0.5s;
+                    }
+
+                    a {
+                        position: absolute;
+                        bottom: 10px;
+                        right: 10px;
+                        padding: 5px 10px;
+
+                        color: #414141;
+                        text-decoration: none;
+                        background-color: white;
+
+                        opacity: 0;
+                        visibility: hidden;
+                        font-size: 1.4rem;
+
+                        transition: opacity 0.5s,
+                                    visibility 0s 0.5s;
+                    }
+                }
+
+                &:hover {
+                    z-index: 1;
+
+                    &::before {
+                        transform: translate(5px, 5px);
+                    }
+
+                    .project-ss {
+                        transform: translate(-5px, -5px);
+
+                        .languages {
+                            opacity: 1;
+                            visibility: visible;
+
+                            transition: opacity 0.5s;
+                        }
+
+                        .project-name {
+                            opacity: 1;
+                        }
+
+                        a {
+                            opacity: 1;
+                            visibility: visible;
+
+                            transition: opacity 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.close {
+
+        .wrapper {
+
+            .projects-container {
+
+                .project {
+                    opacity: 0;
+                    transform: translateY(100%);
+
+                    transition: opacity 1s,
+                                transform 1s;
+                }
+            }
+
+            &.init {
+
+                .projects-container {
+    
+                    .project {
+                        transition: none;
+                    }
+    
+                }
+    
+            }
+        }
+
+    }
+
+}

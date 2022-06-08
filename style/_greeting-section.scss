@@ -1,4 +1,5 @@
 @import './animations';
+@import './media-queries';
 
 #greeting-section {
     color: white;
@@ -8,11 +9,12 @@
         height: 100%;
 
         .greeting-text {
+            width: fit-content;
 
             position: absolute;
             top: 50%;
             left: 10%;
-            transform: translateY(-50%);
+            transform: translate(0%, -50%);
 
             display: flex;
             gap: 15px;
@@ -37,10 +39,53 @@
                 }
                 
                 &:nth-child(2) {
-                    max-width: 0px;
+                    // max-width: 0px;
+                    width: 100%;
                     animation: hi-fade-in 1s 1.3s forwards;
                     // animation: name-fade-in 2s 1s forwards;
                 }
+
+                @include w1480 {
+                    font-size: 2.8rem;
+                }
+
+                @include w1280 {
+                    font-size: 2rem;
+                }
+
+                @include w760 {
+                    font-size: 1.8rem;
+                }
+
+                @include w660 {
+                    font-size: 1.4rem;
+                }
+
+                @include w660 {
+                    font-size: 1rem;
+                }
+            }
+
+            @include w1480 {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            
+            @include w860 {
+                flex-flow: column;
+                align-items: center;
+            }
+        }
+
+        @include w1480 {
+            .background-text {
+                width: 50%;
+                aspect-ratio: 733 / 461;
+            }
+    
+            .background-graphics {
+                width: 40%;
+                aspect-ratio: 557 / 568;
             }
         }
     }
