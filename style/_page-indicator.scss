@@ -2,7 +2,7 @@
 
 .page-indicator {
     width: 70%;
-    height: 10px;
+    height: 1px;
     
     position: fixed;
     top: 50px;
@@ -23,8 +23,8 @@
         gap: 10px;
         padding-left: calc(100% + 100px);
         
-        // background-color: white;
-        border: 2px dashed white;
+        background-color: white;
+        // border: 2px dashed white;
 
         animation: initial-line 1s forwards;
         
@@ -85,7 +85,7 @@
 
     @include w860 {
         width: 60%;
-        height: 5px;
+        // height: 5px;
         left: 50px;
     }
 

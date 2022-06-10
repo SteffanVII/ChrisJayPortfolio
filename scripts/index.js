@@ -88,7 +88,6 @@ Array.from(document.querySelectorAll('.skill-image')).forEach(element => {
 
 document.querySelector('.contact-button').addEventListener('click', (event) => {
     let contactContainer = document.querySelector('.contact-container');
-    console.log('test');
     contactContainer.classList.remove('init');
     contactContainer.classList.add('show');
 });
@@ -112,7 +111,37 @@ document.querySelector('form').addEventListener('submit', event => {
         message : message
     }
 
-    emailjs.send("service_0hvqqjj","template_y1nbmgq", params);
+    let confirmation = form.querySelector('.confirmation');
+    let loading = confirmation.querySelector('.loading');
+
+    confirmation.classList.add('show');
+    form.submit.disabled = true;
+    
+    emailjs.send("service_0hvqqjj","template_y1nbmgq", params).then( value => {
+        if ( value.status === 200 ) {
+            loading.classList.add('success');
+            form.reset();
+            
+            setTimeout(() => {
+                document.querySelector('.contact-container').classList.remove('show');
+            }, 1000);
+
+            setTimeout(() => {
+                form.submit.disabled = true;
+                confirmation.classList.remove('show');
+                loading.classList.remove('success');
+                form.submit.disabled = false;
+            }, 2000);
+        }
+    }, value => {
+        loading.classList.add('error');
+        form.submit.disabled = false;
+
+        setTimeout(() => {
+            confirmation.classList.remove('show');
+            loading.classList.remove('error');
+        }, 2000);
+    } );
 
     return false;
 });

@@ -160,8 +160,16 @@
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="text" name="subject" placeholder="Subject">
                 <textarea name="message" placeholder="Your Message"></textarea>
-                <button type="submit">Send</button>
+                <button type="submit" name="submit">Send</button>
                 <button type="button" class="contact-close">Close</button>
+                <div class="confirmation">
+                    <div class="loading">
+                        <div class="loading-visual"></div>
+                        <span class="confirmation-text loading-text" >Loading</span>
+                        <span class="confirmation-text success-text" >Success</span>
+                        <span class="confirmation-text error-text" >Error</span>
+                    </div>
+                </div>
             </form>
         </div>
     </main>

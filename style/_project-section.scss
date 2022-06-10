@@ -240,6 +240,13 @@
                 }
             }
         }
+
+        @include w1024 {
+            .background-text {
+                width: 105%;
+                aspect-ratio: 1307 / 408;
+            }
+        }
     }
 
     &.close {

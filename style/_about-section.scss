@@ -148,6 +148,13 @@
             }
         }
 
+        @include w760 {
+            .background-text {
+                width: 105%;
+                aspect-ratio: 972 / 310;
+            }
+        }
+
         @include w660 {
             gap: 100px;
         }

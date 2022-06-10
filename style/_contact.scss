@@ -1,3 +1,6 @@
+@import './media-queries';
+@import './animations';
+
 .contact-container {
     width: 100vw;
     height: 100vh;
@@ -44,6 +47,10 @@
         .contact-header {
             color: white;
             font-size: 1.8rem;
+
+            @include w560 {
+                font-size: 1.3rem;
+            }
         }
 
         button {
@@ -58,6 +65,11 @@
             
             &:hover {
                 border-color: #414141;
+            }
+
+            @include w560 {
+                font-size: 1rem;
+                padding: 3px 7px;
             }
         }
         
@@ -83,6 +95,11 @@
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                 font-family: $bodoni-moda;
             }
+
+            @include w560 {
+                font-size: 1rem;
+                padding: 10px;
+            }
         }
         
         textarea {
@@ -98,6 +115,119 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-family: $bodoni-moda;
             resize: none;
+
+            @include w560 {
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
+
+        .confirmation {
+            width: 100%;
+            height: 100%;
+    
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            background: linear-gradient( to top, #38383800, #383838 40%, #383838 60%, #38383800 );
+
+            visibility: hidden;
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: visibility 0s 0.5s,
+                        opacity 0.5s;
+    
+            .loading {
+                width: 100px;
+                height: 100px;
+    
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                .loading-visual {
+                    width: 100%;
+                    height: 100%;
+    
+                    border: 1px solid white;
+                    border-radius: 40%;
+
+                    transition: border-radius 1s,
+                                border-color 1s,
+                                background-color 1s;
+                    animation: rotate-cw 1s forwards infinite;
+                }
+
+                .confirmation-text {
+                    position: absolute;
+
+                    opacity: 0;
+
+                    transition: opacity 0.5s 0.5s;
+
+                    &.loading-text {
+                        opacity: 1;
+                    }
+                }
+
+                &.success {
+                    .loading-visual {
+                        // animation-iteration-count: 1;
+                        border-radius: 50%;
+                        border-color: rgb(101, 158, 101);
+                        background-color: rgb(101, 158, 101);
+                    }
+
+                    .loading-text {
+                        opacity: 0;
+                        transition: opacity 0.5s;
+                    }
+                    
+                    .success-text {
+                        opacity: 1;
+                        transition: opacity 0.5s 0.5s;
+                    }
+                }
+                
+                &.error {
+                    .loading-visual {
+                        // animation-iteration-count: 1;
+                        border-radius: 50%;
+                        border-color: rgb(196, 106, 106);
+                        background-color: rgb(196, 106, 106);
+                    }
+                    
+                    .loading-text {
+                        opacity: 0;
+                        transition: opacity 0.5s;
+                    }
+                    
+                    .error-text {
+                        opacity: 1;
+                        transition: opacity 0.5s 0.5s;
+                    }
+                }
+            }
+
+            &.show {
+                visibility: visible;
+                opacity: 1;
+
+                transition: opacity 0.5s;
+            }
+        }
+
+        @include w560 {
+            gap: 10px;
         }
     }
 
@@ -115,5 +245,10 @@
 
     &.init {
         transition: none;
+    }
+
+    @include w660 {
+        justify-content: center;
+        padding: 0;
     }
 }
