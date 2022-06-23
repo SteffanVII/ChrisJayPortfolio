@@ -997,8 +997,8 @@ body main #projects-section .wrapper .projects .projects-navigation {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
   pointer-events: none;
 }
 

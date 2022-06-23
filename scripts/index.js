@@ -60,22 +60,16 @@ document.body.addEventListener('touchmove', event => {
 Array.from(document.querySelectorAll(".projects-navigate")).forEach( e => {
     if ( e.classList.contains('projects-navigate--left') ) {
         e.addEventListener( 'click', () => {
-            // console.log('test');
             if ( projectsCurrentScroll > 0 ) {
                 projectsCurrentScroll--;
-                console.log(window.clientWidth);
-                console.log(projectsCurrentScroll * window.clientWidth);
             }
             document.querySelector('.projects').scrollTo( projectsCurrentScroll * document.documentElement.clientWidth, 0 );
         } );
     }
     if ( e.classList.contains('projects-navigate--right') ) {
         e.addEventListener( 'click', () => {
-            // console.log('test');
             if ( projectsCurrentScroll < Array.from(document.querySelectorAll(".projects-container")).length - 1 ) {
                 projectsCurrentScroll++;
-                console.log(window.clientWidth);
-                console.log(projectsCurrentScroll * window.clientWidth);
             }
             document.querySelector('.projects').scrollTo( projectsCurrentScroll * document.documentElement.clientWidth, 0 );
         } );
