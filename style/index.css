@@ -982,7 +982,86 @@ body main #about-section.close .wrapper.init .skills {
   transition: none;
 }
 
-body main #projects-section .wrapper .projects-container {
+body main #projects-section .wrapper .projects {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+body main #projects-section .wrapper .projects .projects-navigation {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+body main #projects-section .wrapper .projects .projects-navigation .projects-navigate {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  pointer-events: all;
+}
+
+body main #projects-section .wrapper .projects .projects-navigation .projects-navigate span {
+  width: 30%;
+  height: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  background-color: transparent;
+}
+
+body main #projects-section .wrapper .projects .projects-navigation .projects-navigate--left {
+  left: 20px;
+}
+
+body main #projects-section .wrapper .projects .projects-navigation .projects-navigate--left span {
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+  -webkit-transform: translate(-30%, -50%) rotate(45deg);
+          transform: translate(-30%, -50%) rotate(45deg);
+}
+
+body main #projects-section .wrapper .projects .projects-navigation .projects-navigate--right {
+  right: 20px;
+}
+
+body main #projects-section .wrapper .projects .projects-navigation .projects-navigate--right span {
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  -webkit-transform: translate(-70%, -50%) rotate(-45deg);
+          transform: translate(-70%, -50%) rotate(-45deg);
+}
+
+body main #projects-section .wrapper .projects .projects-navigation .projects-navigate:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1280px) {
+  body main #projects-section .wrapper .projects .projects-navigation .projects-navigate {
+    top: 85%;
+  }
+}
+
+body main #projects-section .wrapper .projects .projects-container {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -995,10 +1074,12 @@ body main #projects-section .wrapper .projects-container {
       -ms-flex-align: center;
           align-items: center;
   gap: 40px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 @media screen and (max-width: 1280px) {
-  body main #projects-section .wrapper .projects-container {
+  body main #projects-section .wrapper .projects .projects-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-flow: column;
@@ -1006,7 +1087,7 @@ body main #projects-section .wrapper .projects-container {
   }
 }
 
-body main #projects-section .wrapper .projects-container .project {
+body main #projects-section .wrapper .projects .projects-container .project {
   width: 475px;
   height: 273px;
   position: relative;
@@ -1017,7 +1098,7 @@ body main #projects-section .wrapper .projects-container .project {
 }
 
 @media screen and (max-width: 760px) {
-  body main #projects-section .wrapper .projects-container .project {
+  body main #projects-section .wrapper .projects .projects-container .project {
     width: 60%;
     height: initial;
     aspect-ratio: 16 / 9;
@@ -1025,47 +1106,47 @@ body main #projects-section .wrapper .projects-container .project {
 }
 
 @media screen and (max-width: 560px) {
-  body main #projects-section .wrapper .projects-container .project {
+  body main #projects-section .wrapper .projects .projects-container .project {
     width: 80%;
   }
 }
 
-body main #projects-section .wrapper .projects-container .project:nth-child(1) {
+body main #projects-section .wrapper .projects .projects-container .project:nth-child(1) {
   -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 1), -webkit-transform 0.7s calc( 1s + 0.15s * 1);
   transition: opacity 0.7s calc( 1s + 0.15s * 1), -webkit-transform 0.7s calc( 1s + 0.15s * 1);
   transition: opacity 0.7s calc( 1s + 0.15s * 1), transform 0.7s calc( 1s + 0.15s * 1);
   transition: opacity 0.7s calc( 1s + 0.15s * 1), transform 0.7s calc( 1s + 0.15s * 1), -webkit-transform 0.7s calc( 1s + 0.15s * 1);
 }
 
-body main #projects-section .wrapper .projects-container .project:nth-child(2) {
+body main #projects-section .wrapper .projects .projects-container .project:nth-child(2) {
   -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 2), -webkit-transform 0.7s calc( 1s + 0.15s * 2);
   transition: opacity 0.7s calc( 1s + 0.15s * 2), -webkit-transform 0.7s calc( 1s + 0.15s * 2);
   transition: opacity 0.7s calc( 1s + 0.15s * 2), transform 0.7s calc( 1s + 0.15s * 2);
   transition: opacity 0.7s calc( 1s + 0.15s * 2), transform 0.7s calc( 1s + 0.15s * 2), -webkit-transform 0.7s calc( 1s + 0.15s * 2);
 }
 
-body main #projects-section .wrapper .projects-container .project:nth-child(3) {
+body main #projects-section .wrapper .projects .projects-container .project:nth-child(3) {
   -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 3), -webkit-transform 0.7s calc( 1s + 0.15s * 3);
   transition: opacity 0.7s calc( 1s + 0.15s * 3), -webkit-transform 0.7s calc( 1s + 0.15s * 3);
   transition: opacity 0.7s calc( 1s + 0.15s * 3), transform 0.7s calc( 1s + 0.15s * 3);
   transition: opacity 0.7s calc( 1s + 0.15s * 3), transform 0.7s calc( 1s + 0.15s * 3), -webkit-transform 0.7s calc( 1s + 0.15s * 3);
 }
 
-body main #projects-section .wrapper .projects-container .project:nth-child(4) {
+body main #projects-section .wrapper .projects .projects-container .project:nth-child(4) {
   -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 4), -webkit-transform 0.7s calc( 1s + 0.15s * 4);
   transition: opacity 0.7s calc( 1s + 0.15s * 4), -webkit-transform 0.7s calc( 1s + 0.15s * 4);
   transition: opacity 0.7s calc( 1s + 0.15s * 4), transform 0.7s calc( 1s + 0.15s * 4);
   transition: opacity 0.7s calc( 1s + 0.15s * 4), transform 0.7s calc( 1s + 0.15s * 4), -webkit-transform 0.7s calc( 1s + 0.15s * 4);
 }
 
-body main #projects-section .wrapper .projects-container .project:nth-child(5) {
+body main #projects-section .wrapper .projects .projects-container .project:nth-child(5) {
   -webkit-transition: opacity 0.7s calc( 1s + 0.15s * 5), -webkit-transform 0.7s calc( 1s + 0.15s * 5);
   transition: opacity 0.7s calc( 1s + 0.15s * 5), -webkit-transform 0.7s calc( 1s + 0.15s * 5);
   transition: opacity 0.7s calc( 1s + 0.15s * 5), transform 0.7s calc( 1s + 0.15s * 5);
   transition: opacity 0.7s calc( 1s + 0.15s * 5), transform 0.7s calc( 1s + 0.15s * 5), -webkit-transform 0.7s calc( 1s + 0.15s * 5);
 }
 
-body main #projects-section .wrapper .projects-container .project::before {
+body main #projects-section .wrapper .projects .projects-container .project::before {
   content: '';
   width: 100%;
   height: 100%;
@@ -1080,7 +1161,7 @@ body main #projects-section .wrapper .projects-container .project::before {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss {
   width: 100%;
   height: 100%;
   position: relative;
@@ -1092,14 +1173,14 @@ body main #projects-section .wrapper .projects-container .project .project-ss {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss img {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss img {
   width: 100%;
   height: 100%;
   -o-object-fit: fill;
      object-fit: fill;
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages {
   width: 100%;
   position: absolute;
   top: 0;
@@ -1116,13 +1197,13 @@ body main #projects-section .wrapper .projects-container .project .project-ss .l
   transition: opacity 0.5s, visibility 0s 0.5s;
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang {
   width: 30px;
   height: 30px;
   position: relative;
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang .logo {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang .logo {
   width: 100%;
   height: 100%;
   background-color: #414141;
@@ -1130,7 +1211,7 @@ body main #projects-section .wrapper .projects-container .project .project-ss .l
           mask-size: 100%;
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang::before {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang::before {
   padding: 5px 10px;
   position: absolute;
   bottom: calc(100% + 20px);
@@ -1140,56 +1221,56 @@ body main #projects-section .wrapper .projects-container .project .project-ss .l
   transition: opacity 0.5s;
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-html .logo {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-html .logo {
   -webkit-mask-image: url("../assets/html.svg");
           mask-image: url("../assets/html.svg");
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-html::before {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-html::before {
   content: 'Html';
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-css .logo {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-css .logo {
   -webkit-mask-image: url("../assets/css.svg");
           mask-image: url("../assets/css.svg");
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-css::before {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-css::before {
   content: 'Css';
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-js .logo {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-js .logo {
   -webkit-mask-image: url("../assets/js.svg");
           mask-image: url("../assets/js.svg");
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-js::before {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-js::before {
   content: 'Javascript';
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-reactjs .logo {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-reactjs .logo {
   -webkit-mask-image: url("../assets/reactjs.svg");
           mask-image: url("../assets/reactjs.svg");
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-reactjs::before {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-reactjs::before {
   content: 'ReactJs';
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-sass .logo {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-sass .logo {
   -webkit-mask-image: url("../assets/sass.svg");
           mask-image: url("../assets/sass.svg");
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang.lang-sass::before {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang.lang-sass::before {
   content: 'Sass';
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .languages .lang:hover::before {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .languages .lang:hover::before {
   opacity: 1;
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss .project-name {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss .project-name {
   position: absolute;
   top: calc(100% + 20px);
   left: 10px;
@@ -1202,7 +1283,7 @@ body main #projects-section .wrapper .projects-container .project .project-ss .p
   transition: opacity 0.5s;
 }
 
-body main #projects-section .wrapper .projects-container .project .project-ss a {
+body main #projects-section .wrapper .projects .projects-container .project .project-ss a {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -1217,32 +1298,32 @@ body main #projects-section .wrapper .projects-container .project .project-ss a 
   transition: opacity 0.5s, visibility 0s 0.5s;
 }
 
-body main #projects-section .wrapper .projects-container .project:hover {
+body main #projects-section .wrapper .projects .projects-container .project:hover {
   z-index: 1;
 }
 
-body main #projects-section .wrapper .projects-container .project:hover::before {
+body main #projects-section .wrapper .projects .projects-container .project:hover::before {
   -webkit-transform: translate(5px, 5px);
           transform: translate(5px, 5px);
 }
 
-body main #projects-section .wrapper .projects-container .project:hover .project-ss {
+body main #projects-section .wrapper .projects .projects-container .project:hover .project-ss {
   -webkit-transform: translate(-5px, -5px);
           transform: translate(-5px, -5px);
 }
 
-body main #projects-section .wrapper .projects-container .project:hover .project-ss .languages {
+body main #projects-section .wrapper .projects .projects-container .project:hover .project-ss .languages {
   opacity: 1;
   visibility: visible;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-body main #projects-section .wrapper .projects-container .project:hover .project-ss .project-name {
+body main #projects-section .wrapper .projects .projects-container .project:hover .project-ss .project-name {
   opacity: 1;
 }
 
-body main #projects-section .wrapper .projects-container .project:hover .project-ss a {
+body main #projects-section .wrapper .projects .projects-container .project:hover .project-ss a {
   opacity: 1;
   visibility: visible;
   -webkit-transition: opacity 0.5s;
@@ -1256,7 +1337,11 @@ body main #projects-section .wrapper .projects-container .project:hover .project
   }
 }
 
-body main #projects-section.close .wrapper .projects-container .project {
+body main #projects-section.close .wrapper .projects .projects-navigation {
+  opacity: 0;
+}
+
+body main #projects-section.close .wrapper .projects .projects-container .project {
   opacity: 0;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
@@ -1266,7 +1351,12 @@ body main #projects-section.close .wrapper .projects-container .project {
   transition: opacity 1s, transform 1s, -webkit-transform 1s;
 }
 
-body main #projects-section.close .wrapper.init .projects-container .project {
+body main #projects-section.close .wrapper.init .projects .projects-navigation {
+  -webkit-transition: none;
+  transition: none;
+}
+
+body main #projects-section.close .wrapper.init .projects .projects-container .project {
   -webkit-transition: none;
   transition: none;
 }

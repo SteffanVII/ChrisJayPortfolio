@@ -15,6 +15,8 @@ let scrollHeight = document.documentElement.scrollHeight - window.innerHeight,
     targetScroll = 0,
     lastDrag = 0;
 
+let projectsCurrentScroll = 0;
+
 let randomLetterInterval,
     sectionName = 'Hi';
     cycles = 0,
@@ -54,6 +56,31 @@ document.body.addEventListener('touchmove', event => {
     if ( targetScroll > getScrollHeihgt() ) targetScroll = getScrollHeihgt();
     if ( targetScroll < 0 ) targetScroll = 0;
 });
+
+Array.from(document.querySelectorAll(".projects-navigate")).forEach( e => {
+    if ( e.classList.contains('projects-navigate--left') ) {
+        e.addEventListener( 'click', () => {
+            // console.log('test');
+            if ( projectsCurrentScroll > 0 ) {
+                projectsCurrentScroll--;
+                console.log(window.clientWidth);
+                console.log(projectsCurrentScroll * window.clientWidth);
+            }
+            document.querySelector('.projects').scrollTo( projectsCurrentScroll * document.documentElement.clientWidth, 0 );
+        } );
+    }
+    if ( e.classList.contains('projects-navigate--right') ) {
+        e.addEventListener( 'click', () => {
+            // console.log('test');
+            if ( projectsCurrentScroll < Array.from(document.querySelectorAll(".projects-container")).length - 1 ) {
+                projectsCurrentScroll++;
+                console.log(window.clientWidth);
+                console.log(projectsCurrentScroll * window.clientWidth);
+            }
+            document.querySelector('.projects').scrollTo( projectsCurrentScroll * document.documentElement.clientWidth, 0 );
+        } );
+    }
+} );
 
 Array.from(document.querySelectorAll('.skill-image')).forEach(element => {
     element.addEventListener('mouseover', (event) => {
