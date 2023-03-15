@@ -178,12 +178,10 @@ function Loop() {
     currentTime = new Date().getTime();
     delta = currentTime - lastTime;
 
-    console.log(delta);
     if ( delta >= interval ) {
         MainProcess();
         lastTime = currentTime;
     }
-
 
     window.requestAnimationFrame(Loop);
 }
