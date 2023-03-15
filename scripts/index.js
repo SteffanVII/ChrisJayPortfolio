@@ -17,8 +17,8 @@ let scrollHeight = document.documentElement.scrollHeight - window.innerHeight,
 
 let projectsCurrentScroll = 0;
 
+let sectionName = 'Hi';
 let randomLetterInterval,
-    sectionName = 'Hi';
     cycles = 0,
     textPosition = -1;
 
@@ -178,10 +178,12 @@ function Loop() {
     currentTime = new Date().getTime();
     delta = currentTime - lastTime;
 
-    lastTime = currentTime;
+    console.log(delta);
     if ( delta >= interval ) {
         MainProcess();
+        lastTime = currentTime;
     }
+
 
     window.requestAnimationFrame(Loop);
 }
