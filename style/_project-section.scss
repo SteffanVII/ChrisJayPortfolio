@@ -261,6 +261,26 @@
                                         content: 'Sass';
                                     }    
                                 }
+
+                                &.lang-angular {
+                                    .logo {
+                                        mask-image: url("../assets/angular.svg");
+                                    }
+
+                                    &::before {
+                                        content: "Angular";
+                                    }
+                                }
+
+                                &.lang-typescript {
+                                    .logo {
+                                        mask-image: url("../assets/typescript.svg");
+                                    }
+
+                                    &::before {
+                                        content: "Typescript";
+                                    }
+                                }
     
                                 &:hover {
                                     &::before {
